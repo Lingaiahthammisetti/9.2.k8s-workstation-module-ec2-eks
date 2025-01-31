@@ -8,6 +8,7 @@ module "k8s-workstation" {
   # convert StringList to list and get first element
   subnet_id = var.public_subnet_id
   user_data = file("workstation.sh")
+
   tags = {
         Name = "k8s-workstation-ec2"
     }

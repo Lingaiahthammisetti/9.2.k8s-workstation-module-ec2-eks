@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#Installing Docker
 echo "************ Docker installation - start *************"
 yum install yum-utils -y 
 yum-config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo 
@@ -17,7 +16,6 @@ echo "*********** Docker installation - completed *************"
 # allow-everything
 # 50 GB
 echo "******* Resize EBS Storage - start **************"
-# #Note: We can't use these commands in the creation of ec2 instances.
 lsblk 
 sudo growpart /dev/nvme0n1 4  #t3.micro used only
 sudo lvextend -l +50%FREE /dev/RootVG/rootVol 
@@ -39,14 +37,7 @@ sudo mv kubectl  /usr/local/bin/
 kubectl version --client 
 echo "*************   kubectl installation - completed *************"
 
-echo "*************Install K9s - Start*************"
-#Installing K9s
-curl -sS https://webinstall.dev/k9s | bash 
-k9s --version
-echo "*************Install K9s - completed*************"
-
 echo "*************Install Helm - Start*************"
-#Installing Helm in Kubernetes
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 
 chmod 700 get_helm.sh 
 ./get_helm.sh 
@@ -55,10 +46,10 @@ echo "*************Install Helm - completed*************"
 echo "*************kubens Setup - start*************"
 sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx 
 sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens 
-kubens expense 
+#kubens expense 
 echo "*************kubens Setup - completed*************"
 
-# echo "*************   eksctl cluster creation started *************"
-#eksctl create cluster --config-file=eks.yaml 
-# VALIDATE $? "eksctl cluster creation process"
-# echo "*************   eksctl cluster creation completed *************"
+echo "*************Install K9s - Start*************"
+curl -sS https://webinstall.dev/k9s | bash 
+k9s --version
+echo "*************Install K9s - completed*************"
