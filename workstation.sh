@@ -53,3 +53,11 @@ echo "*************Install K9s - Start*************"
 curl -sS https://webinstall.dev/k9s | bash 
 k9s --version
 echo "*************Install K9s - completed*************"
+
+echo "*************install_eksctl_kubectl - Start*************"
+cd /tmp
+git clone https://github.com/Lingaiahthammisetti/9.3.k8s-eksctl.git
+cd 9.3.k8s-eksctl
+sh install_eksctl_kubectl.sh
+echo "*************install_eksctl_kubectl - Completed*************"
+
