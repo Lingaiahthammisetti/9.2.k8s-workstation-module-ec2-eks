@@ -1,5 +1,4 @@
 data "aws_ami" "rhel_info" {
-
 	most_recent      = true
 	owners = ["973714476881"]
 	
