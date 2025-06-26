@@ -15,6 +15,6 @@ variable "k8s_instance" {
 }
 variable "public_subnet_id" {
     type = string
-    default = "subnet-0d7fa2987ed89823d" #update it right one.
+    default = "subnet-0a3b249c1f344ef36" #update it right one.
 }
 
