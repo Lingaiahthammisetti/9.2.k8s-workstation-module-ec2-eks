@@ -10,7 +10,7 @@ usermod -aG docker ec2-user
 echo "*********** Docker installation - completed *************"
 
 # ec2 instance creation request for Docker expense project
-# =============================================
+# =========================================================
 # RHEL-9-DevOps-Practice
 # t3.micro
 # allow-everything
