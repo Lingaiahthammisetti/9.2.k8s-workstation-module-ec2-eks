@@ -58,6 +58,7 @@ echo "*************install_eksctl_kubectl - Start*************"
 cd /tmp
 git clone https://github.com/Lingaiahthammisetti/9.3.k8s-eksctl.git
 cd 9.3.k8s-eksctl
+sudo cp -r /tmp/9.3.k8s-eksctl /  #For deleting cluster at end.
 sh install_eksctl_kubectl.sh
 echo "*************install_eksctl_kubectl - Completed*************"
 
