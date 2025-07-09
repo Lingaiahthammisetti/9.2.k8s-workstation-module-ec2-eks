@@ -9,6 +9,11 @@ module "k8s-workstation" {
   subnet_id = var.public_subnet_id
   user_data = file("workstation.sh")
   iam_instance_profile = "k8s-iam-role-authentication" #administrator access role name.
+  root_block_device {
+    volume_size = 100  # Size of the root volume in GB
+    volume_type = "gp2"  # General Purpose SSD (you can change the volume type if needed)
+    delete_on_termination = true  # Automatically delete the volume when the instance is terminated
+    }
 
   tags = {
         Name = "k8s-workstation-ec2"
