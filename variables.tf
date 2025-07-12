@@ -3,10 +3,10 @@ variable "allow_everything" {
     default = "sg-09c7c70bd56f0d58b"
 }
 variable "zone_id" {
-    default ="Z07608533HHBQHW47XU3F"
+    default ="Z01686671NYDIP6ZJB3D7"
 }
 variable "domain_name" {
-  default = "lingaiah.online"
+  default = "lithesh.shop"
 }
 variable "k8s_instance" {
    default = {
