@@ -10,13 +10,14 @@ module "k8s-workstation" {
   
   user_data = file("workstation.sh")
   iam_instance_profile = "k8s-iam-role-authentication" #administrator access role name.
-  root_block_device = {
-    encrypted  = false           # Not encrypted
-    type       = "gp3"           # gp3 volume type
-    size       = 100              # 10 GiB
-    iops       = 3000            # 3000 IOPS
-    throughput = 125             # Optional: default for gp3 is 125 MiB/s
-  }
+  root_block_device = [{
+    encrypted             = false
+    volume_type           = "gp3"
+    volume_size           = 100
+    iops                  = 3000
+    throughput            = 125
+    delete_on_termination = true
+  }]
   tags = {
         Name = "k8s-workstation-ec2"
     }
